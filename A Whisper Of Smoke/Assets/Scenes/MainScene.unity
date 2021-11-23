@@ -596,6 +596,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmokeCage
       objectReference: {fileID: 0}
+    - target: {fileID: 4939669499242437866, guid: 1e20214fda24e0f4c9f73b71d3abf2bf,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 07d448faf1f05d94a83b6465fb96ff14, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e20214fda24e0f4c9f73b71d3abf2bf, type: 3}
 --- !u!1001 &6231307934497663629
@@ -714,6 +719,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameplayCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6231307934188666170, guid: 76b95990fdd13b14d81d09f4c0700ed8,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76b95990fdd13b14d81d09f4c0700ed8, type: 3}

@@ -69,15 +69,17 @@ public class FadeDestroy : MonoBehaviour
             Color objectColor = child.gameObject.GetComponent<MeshRenderer>().material.color;
 
             // OLD:
-            //float fadeAmount = objectColor.a - (fadeSpeed * Time.deltaTime);
-            //objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
-            Color fadedColor = new Color(objectColor.r, objectColor.g, objectColor.b, 0);
+            float fadeAmount = objectColor.a - (fadeSpeed * Time.deltaTime);
+            objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
+            
+            //Color fadedColor = new Color(objectColor.r, objectColor.g, objectColor.b, 0);
 
-            Lerp_MeshRenderer_Color(child.GetComponent<MeshRenderer>(), 2.0f, objectColor, fadedColor);
+            //Lerp_MeshRenderer_Color(child.GetComponent<MeshRenderer>(), 2.0f, objectColor, fadedColor);
 
             // OLD:
-            // this.GetComponent<MeshRenderer>().material.color = objectColor;
+            this.GetComponent<MeshRenderer>().material.color = objectColor;
 
+            Destroy(child.gameObject);
             // OLD:
             //if (objectColor.a <= 0)
             //{
@@ -101,15 +103,15 @@ public class FadeDestroy : MonoBehaviour
             Color objectColor = child.gameObject.GetComponent<MeshRenderer>().material.color;
 
             // OLD:
-            //float fadeAmount = objectColor.a + (fadeSpeed * Time.deltaTime);
-            //objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
+            float fadeAmount = objectColor.a + (fadeSpeed * Time.deltaTime);
+            objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
 
-            Color fadedColor = new Color(objectColor.r, objectColor.g, objectColor.b, 0);
+            //Color fadedColor = new Color(objectColor.r, objectColor.g, objectColor.b, 0);
 
-            Lerp_MeshRenderer_Color(child.GetComponent<MeshRenderer>(), 2.0f, fadedColor, objectColor);
+            //Lerp_MeshRenderer_Color(child.GetComponent<MeshRenderer>(), 2.0f, fadedColor, objectColor);
 
             // OLD:
-            //this.GetComponent<MeshRenderer>().material.color = objectColor;
+            this.GetComponent<MeshRenderer>().material.color = objectColor;
 
             // OLD:
             //if (objectColor.a >= 1)
