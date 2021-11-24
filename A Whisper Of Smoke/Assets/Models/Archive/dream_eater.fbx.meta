@@ -1,9 +1,24 @@
 fileFormatVersion: 2
-guid: e17b8775cdc880245937437698a9d3a1
+guid: 94e17a1cb301f774aa3ac5c2b15e8d19
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Bun Texture5
+    second: {fileID: 2800000, guid: a7ef8be91506aa8498165cee74f2d249, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: dark bun texture5
+    second: {fileID: 2800000, guid: 890df9a910a44614fb79ec7d74c2b150, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: dark bun texture9
+    second: {fileID: 2800000, guid: 28c3170d8380d7143a18b43b8819858a, type: 3}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -41,8 +56,8 @@ ModelImporter:
     sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    importCameras: 0
+    importLights: 0
     fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
