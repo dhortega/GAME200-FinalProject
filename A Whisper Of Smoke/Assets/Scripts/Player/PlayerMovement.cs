@@ -8,8 +8,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpForce = 200.0f;
     [SerializeField] private bool isFacingLeft = false;
     [SerializeField] private Animator anim;
+    [SerializeField] private GameObject purifier;
     private Rigidbody rb;
     private bool canJump = false;
+    private Vector3 lastPosition;
 
     private bool askedToJump = false;
     private bool askedToUpdateMovement = false;
@@ -21,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = gameObject.GetComponent<Rigidbody>();
         canJump = true;
+        lastPosition = gameObject.transform.position;
     }
 
     // Update is called once per frame
@@ -28,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
     {
         #region PHYSICS-BASED HORIZONTAL MOVEMENT
         bool playerXInput = Input.GetButton("Horizontal");
-        if (playerXInput)
+        if (playerXInput && !anim.GetBool("isPurifying"))
         {
             float xAxisValue = Input.GetAxis("Horizontal");
             //rb.velocity = new Vector3(speed * xAxisValue, rb.velocity.y, rb.velocity.z);
@@ -54,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
         if (!playerXInput && rb.velocity.x != 0.0f && !askedToUpdateMovement)
         {
             //rb.velocity = new Vector3(0.0f, rb.velocity.y, rb.velocity.z); 
-            updateToThisVelocity =  new Vector3(0.0f, rb.velocity.y, rb.velocity.z);
+            updateToThisVelocity = new Vector3(0.0f, rb.velocity.y, rb.velocity.z);
             askedToUpdateMovement = true;
             if (!anim.GetBool("isIdle"))
             {
@@ -65,12 +68,24 @@ public class PlayerMovement : MonoBehaviour
 
         #region PHYSICS-BASED VERTICAL MOVEMENT (single jump)
         bool playerYInput = Input.GetButtonDown("Jump");
-        if (playerYInput && canJump) {
+        if (playerYInput && canJump && !anim.GetBool("isPurifying")) {
             canJump = false;
             askedToJump = true;
             anim.SetBool("isMidair", true);
         }
         #endregion
+
+        #region PURIFY INPUT
+        if (Input.GetButtonDown("Purify") && !purifier.activeInHierarchy) {
+            purifier.SetActive(true);
+        }
+        #endregion
+
+        if ((!playerXInput && !playerYInput) && gameObject.transform.position == lastPosition) {
+            if (!anim.GetBool("isIdle"))
+                anim.SetBool("isIdle", true);
+        }
+        lastPosition = gameObject.transform.position;
     }
 
     private void FixedUpdate()
@@ -95,5 +110,9 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("isMidair", false);
             canJump = true;
         }
+    }
+
+    public Animator GetAnimator() {
+        return anim;
     }
 }

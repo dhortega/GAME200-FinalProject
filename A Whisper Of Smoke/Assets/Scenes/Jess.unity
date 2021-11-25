@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &177802514
 Transform:
   m_ObjectHideFlags: 0
@@ -178,6 +178,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3026179342a15744f9f383b1de1425d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeoutDuration: 0.05
+  castDuration: 0.1
+  playerMovement: {fileID: 1999266175}
 --- !u!1 &196793786
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,7 +239,7 @@ GameObject:
   - component: {fileID: 205169505}
   m_Layer: 0
   m_Name: Cube (4)
-  m_TagString: Untagged
+  m_TagString: Purifiable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3921,14 +3924,14 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 1
+    enabled: 0
     serializedVersion: 3
-    type: 0
+    type: 1
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
     multiplyColliderForceByParticleSpeed: 0
-    multiplyColliderForceByCollisionAngle: 1
+    multiplyColliderForceByCollisionAngle: 0
     plane0: {fileID: 343542073}
     plane1: {fileID: 0}
     plane2: {fileID: 0}
@@ -4099,15 +4102,15 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 1
     maxCollisionShapes: 256
-    quality: 0
+    quality: 2
     voxelSize: 0.5
-    collisionMessages: 1
+    collisionMessages: 0
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
-    enabled: 1
+    enabled: 0
     collisionShape0: {fileID: 177802514}
     collisionShape1: {fileID: 0}
     collisionShape2: {fileID: 0}
@@ -5078,12 +5081,12 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 343542070}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 47b93c321de6401448aa60fe871b3700, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8.128759, y: 8.220187, z: 25.920074}
-  m_Center: {x: -0.045912027, y: -0.033141136, z: 12.649857}
+  m_Size: {x: 8.128759, y: 9.449002, z: 25.920074}
+  m_Center: {x: -0.04591179, y: 0.016012192, z: 12.649857}
 --- !u!1 &443042502
 GameObject:
   m_ObjectHideFlags: 3
@@ -5624,7 +5627,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 871538556}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.7268922, y: 0, z: -9}
+  m_LocalPosition: {x: -3.7306256, y: 0, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6335,6 +6338,7 @@ MonoBehaviour:
   jumpForce: 500
   isFacingLeft: 0
   anim: {fileID: 1034701424}
+  purifier: {fileID: 177802513}
 --- !u!65 &1999266176
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6408,7 +6412,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2016799422}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.7268922, y: 0, z: -9}
+  m_LocalPosition: {x: -3.7306256, y: 0, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 443042503}
