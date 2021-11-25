@@ -38,11 +38,13 @@ public class PlayerMovement : MonoBehaviour
             {
                 isFacingLeft = true;
                 anim.SetBool("isIdle", true);
+                gameObject.transform.eulerAngles = new Vector3(gameObject.transform.eulerAngles.x, gameObject.transform.eulerAngles.y - 180, gameObject.transform.eulerAngles.z);
             }
             else if (xAxisValue > 0 && isFacingLeft)
             {
                 isFacingLeft = false;
                 anim.SetBool("isIdle", true);
+                gameObject.transform.eulerAngles = new Vector3(gameObject.transform.eulerAngles.x, gameObject.transform.eulerAngles.y + 180, gameObject.transform.eulerAngles.z);
             }
             else {
                 if (anim.GetBool("isIdle"))
