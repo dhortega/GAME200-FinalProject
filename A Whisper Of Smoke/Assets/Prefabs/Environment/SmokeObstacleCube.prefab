@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 7566481314346897682}
   - component: {fileID: 7566481314346897684}
   - component: {fileID: 7566481314346897683}
+  - component: {fileID: 200423054911306563}
+  - component: {fileID: 1906265416}
   m_Layer: 0
   m_Name: SmokeParticleSystem
-  m_TagString: Untagged
+  m_TagString: Purifiable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,7 +44,7 @@ ParticleSystem:
   serializedVersion: 6
   lengthInSec: 5
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 1
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
@@ -4754,6 +4756,32 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!65 &200423054911306563
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7566481314346897681}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.3090703, y: 3.3225873, z: 2.3637779}
+  m_Center: {x: 1.0296236, y: -1.2438259, z: 1.2223154}
+--- !u!65 &1906265416
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7566481314346897681}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.1161137, y: 3.3189921, z: 3.8200004}
+  m_Center: {x: 1.058537, y: -1.23919, z: 1.2661765}
 --- !u!1 &7566481315881295697
 GameObject:
   m_ObjectHideFlags: 0
@@ -4765,7 +4793,6 @@ GameObject:
   - component: {fileID: 7566481315881295702}
   - component: {fileID: 7566481315881295701}
   - component: {fileID: 7566481315881295700}
-  - component: {fileID: 7566481315881295699}
   - component: {fileID: 7566481315881295698}
   m_Layer: 0
   m_Name: SmokeObstacleCube
@@ -4836,19 +4863,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &7566481315881295699
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7566481315881295697}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &7566481315881295698
 Rigidbody:
   m_ObjectHideFlags: 0

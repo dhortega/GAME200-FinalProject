@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 9055831940973014655}
   - component: {fileID: 9055831940973014648}
   - component: {fileID: 9055831940973014649}
-  - component: {fileID: 9055831940973014650}
   - component: {fileID: 9055831940973014654}
   m_Layer: 0
   m_Name: SmokeObstacleHorizontal
@@ -82,19 +81,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &9055831940973014650
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9055831940973014651}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &9055831940973014654
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -122,9 +108,11 @@ GameObject:
   - component: {fileID: 9055831941566463237}
   - component: {fileID: 9055831941566463243}
   - component: {fileID: 9055831941566463236}
+  - component: {fileID: 2751451747603248414}
+  - component: {fileID: 1760074989}
   m_Layer: 0
   m_Name: SmokeParticleSystem
-  m_TagString: Untagged
+  m_TagString: Purifiable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,7 +141,7 @@ ParticleSystem:
   serializedVersion: 6
   lengthInSec: 5
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 1
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
@@ -4865,3 +4853,29 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!65 &2751451747603248414
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9055831941566463238}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.8922445, y: 4.331608, z: 2.430461}
+  m_Center: {x: 0.47285163, y: -0.7458036, z: 1.2704401}
+--- !u!65 &1760074989
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9055831941566463238}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.8591857, y: 3.3294876, z: 3.8199987}
+  m_Center: {x: 0.39418083, y: -1.2423675, z: 1.2661777}
