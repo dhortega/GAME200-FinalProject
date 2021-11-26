@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FadeDestroy : MonoBehaviour
 {
-
+    public ParticleSystem smokeParticleSystem;
     private bool FadeIn;
     private bool FadeOut;
     public int fadeSpeed;
@@ -49,14 +49,25 @@ public class FadeDestroy : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.A))
         {
+
             // OLD:
-            StartCoroutine(FadeOutObject());
+            //StartCoroutine(FadeOutObject());
+            //while (smokeParticleSystem.maxParticles > 0)
+            //{
+            //    StartCoroutine(DecrementSmokeParticles());
+            //}
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
             // OLD:
-            StartCoroutine(FadeInObject());
+            //StartCoroutine(FadeInObject());
         }
+    }
+
+    public IEnumerator DecrementSmokeParticles()
+    {
+        yield return new WaitForSeconds(1);
+        smokeParticleSystem.maxParticles -= 50;
     }
 
     public IEnumerator FadeOutObject()
@@ -79,7 +90,7 @@ public class FadeDestroy : MonoBehaviour
             // OLD:
             this.GetComponent<MeshRenderer>().material.color = objectColor;
 
-            Destroy(child.gameObject);
+            Destroy(child.gameObject); // Continue to work on this - 11/23/2021
             // OLD:
             //if (objectColor.a <= 0)
             //{
