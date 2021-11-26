@@ -25,6 +25,9 @@ public class PlayerPurification : MonoBehaviour
                 isPurifying = false;
                 this.gameObject.SetActive(false);
             }
+            else if (ps.gameObject.activeInHierarchy && ps.time <= 0.0f) {
+                ps.gameObject.SetActive(false);
+            }
         }
         else if (Time.time - startCastTimer >= castDuration && this.gameObject.activeInHierarchy) {
             this.gameObject.SetActive(false);
@@ -37,9 +40,11 @@ public class PlayerPurification : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("OnTriggerEnter: " + other.gameObject.tag);
         // NOTE: ONCE THE PARTICLE SYSTEM'S TIME RUNS OUT, IT WILL DISABLE ITSELF. 
         if (other.gameObject.CompareTag("Purifiable"))                                  // If collided with purifiable object...
         {
+            
             if (playerMovement.GetNumOfPurificationsAvalible() > 0) {                   // If there is tummy space for more purifications...
                 if (ps == null) {
                     ps = other.gameObject.GetComponent<ParticleSystem>();
@@ -49,6 +54,13 @@ public class PlayerPurification : MonoBehaviour
                         if (!playerMovement.GetAnimator().GetBool("isPurifying"))
                             playerMovement.GetAnimator().SetBool("isPurifying", true);
                         isPurifying = true;
+                        for (int i = 0; i < ps.gameObject.transform.childCount; i++) {
+                            GameObject childGO = ps.gameObject.transform.GetChild(i).gameObject;
+                            if (childGO != null) {
+                                if (childGO.activeInHierarchy)
+                                    childGO.SetActive(false);
+                            }
+                        }
                         psmm = ps.main;
                         ps.Pause();
                         psmm.duration = fadeoutDuration;
