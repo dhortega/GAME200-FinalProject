@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Floor
   - Purifiable
+  - Candy
   layers:
   - Default
   - TransparentFX

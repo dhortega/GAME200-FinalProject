@@ -38,27 +38,31 @@ public class PlayerPurification : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // NOTE: ONCE THE PARTICLE SYSTEM'S TIME RUNS OUT, IT WILL DISABLE ITSELF. 
-        if (other.gameObject.CompareTag("Purifiable"))
+        if (other.gameObject.CompareTag("Purifiable"))                                  // If collided with purifiable object...
         {
-            if (ps == null)
-            {
-                ps = other.gameObject.GetComponent<ParticleSystem>();
-                if (ps != null)
-                {
-                    Debug.Log("Starting purification process!");
-                    if(!playerMovement.GetAnimator().GetBool("isPurifying"))
-                        playerMovement.GetAnimator().SetBool("isPurifying", true);
-                    isPurifying = true;
-                    psmm = ps.main;
-                    ps.Pause();
-                    psmm.duration = fadeoutDuration;
-                    ps.Play();
-                    ps.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            if (playerMovement.GetNumOfPurificationsAvalible() > 0) {                   // If there is tummy space for more purifications...
+                if (ps == null) {
+                    ps = other.gameObject.GetComponent<ParticleSystem>();
+                    if (ps != null) {
+                        Debug.Log("Starting purification process!");
+                        playerMovement.DecreaseNumOfPurifications();
+                        if (!playerMovement.GetAnimator().GetBool("isPurifying"))
+                            playerMovement.GetAnimator().SetBool("isPurifying", true);
+                        isPurifying = true;
+                        psmm = ps.main;
+                        ps.Pause();
+                        psmm.duration = fadeoutDuration;
+                        ps.Play();
+                        ps.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+                    }
+                    else {
+                        Debug.Log("There were no particle systems found on this Purifiable object. Was this intentional?");
+                    }
                 }
-                else
-                {
-                    Debug.Log("There were no particle systems found on this Purifiable object. Was this intentional?");
-                }
+            }
+            else  {                                                                      // Else if the Deater is too full...
+                Debug.Log("I'm too full! Can't purify any more smoke :(");
+                // PLAY BURP SOUND HERE
             }
         }
     }
