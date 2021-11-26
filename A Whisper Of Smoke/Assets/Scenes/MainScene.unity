@@ -455,6 +455,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!198 &1887918846 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1887918846, guid: 1e20214fda24e0f4c9f73b71d3abf2bf,
+    type: 3}
+  m_PrefabInstance: {fileID: 4939669499231237201}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4921001104744579151
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -596,6 +602,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmokeCage
       objectReference: {fileID: 0}
+    - target: {fileID: 4939669497873707139, guid: 1e20214fda24e0f4c9f73b71d3abf2bf,
+        type: 3}
+      propertyPath: smokeParticleSystem
+      value: 
+      objectReference: {fileID: 1887918846}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e20214fda24e0f4c9f73b71d3abf2bf, type: 3}
 --- !u!1001 &6231307934497663629
@@ -714,6 +725,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameplayCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6231307934188666170, guid: 76b95990fdd13b14d81d09f4c0700ed8,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76b95990fdd13b14d81d09f4c0700ed8, type: 3}
