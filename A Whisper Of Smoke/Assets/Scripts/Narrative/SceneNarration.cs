@@ -23,7 +23,7 @@ public class SceneNarration : MonoBehaviour
             Debug.Log("Double check your game object! Something went wrong..");
     }
 
-    IEnumerator PlayCutscene() {
+    IEnumerator PlayCutscene() {        
         //yield return new WaitForSeconds(fadeAnimationTime);
         for (int i = 0; i < quotesToDisplay.Count; ++i) {
             textbox.text = quotesToDisplay[i];

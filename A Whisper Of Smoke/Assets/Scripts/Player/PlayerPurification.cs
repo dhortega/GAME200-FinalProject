@@ -78,4 +78,8 @@ public class PlayerPurification : MonoBehaviour
             }
         }
     }
+
+    public bool GetIsPurifying() {
+        return isPurifying;
+    }
 }

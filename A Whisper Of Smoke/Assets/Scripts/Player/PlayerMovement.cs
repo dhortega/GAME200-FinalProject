@@ -44,57 +44,64 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        #region PHYSICS-BASED HORIZONTAL MOVEMENT
         bool playerXInput = Input.GetButton("Horizontal");
-        if (playerXInput && !anim.GetBool("isPurifying"))
-        {
-            float xAxisValue = Input.GetAxis("Horizontal");
-            //rb.velocity = new Vector3(speed * xAxisValue, rb.velocity.y, rb.velocity.z);
-            updateToThisVelocity = new Vector3(speed * xAxisValue, rb.velocity.y, rb.velocity.z);
-            askedToUpdateMovement = true;
-            if (xAxisValue < 0 && !isFacingLeft)
-            {
-                isFacingLeft = true;
-                anim.SetBool("isIdle", true);
-                gameObject.transform.eulerAngles = new Vector3(gameObject.transform.eulerAngles.x, gameObject.transform.eulerAngles.y - 180, gameObject.transform.eulerAngles.z);
-            }
-            else if (xAxisValue > 0 && isFacingLeft)
-            {
-                isFacingLeft = false;
-                anim.SetBool("isIdle", true);
-                gameObject.transform.eulerAngles = new Vector3(gameObject.transform.eulerAngles.x, gameObject.transform.eulerAngles.y + 180, gameObject.transform.eulerAngles.z);
-            }
-            else {
-                if (anim.GetBool("isIdle"))
-                    anim.SetBool("isIdle", false);
-            }
-        }
-        if (!playerXInput && rb.velocity.x != 0.0f && !askedToUpdateMovement)
-        {
-            //rb.velocity = new Vector3(0.0f, rb.velocity.y, rb.velocity.z); 
-            updateToThisVelocity = new Vector3(0.0f, rb.velocity.y, rb.velocity.z);
-            askedToUpdateMovement = true;
-            if (!anim.GetBool("isIdle"))
-            {
-                anim.SetBool("isIdle", true);
-            }
-        }
-        #endregion
-
-        #region PHYSICS-BASED VERTICAL MOVEMENT (single jump)
         bool playerYInput = Input.GetButtonDown("Jump");
-        if (playerYInput && canJump && !anim.GetBool("isPurifying")) {
-            canJump = false;
-            askedToJump = true;
-            anim.SetBool("isMidair", true);
-        }
-        #endregion
+        if (GameHandler.GetPlayerActionsEnabled()) {
+            #region PHYSICS-BASED HORIZONTAL MOVEMENT INPUT
+            
+            if (playerXInput && !anim.GetBool("isPurifying"))
+            {
+                float xAxisValue = Input.GetAxis("Horizontal");
+                //rb.velocity = new Vector3(speed * xAxisValue, rb.velocity.y, rb.velocity.z);
+                updateToThisVelocity = new Vector3(speed * xAxisValue, rb.velocity.y, rb.velocity.z);
+                askedToUpdateMovement = true;
+                if (xAxisValue < 0 && !isFacingLeft)
+                {
+                    isFacingLeft = true;
+                    anim.SetBool("isIdle", true);
+                    gameObject.transform.eulerAngles = new Vector3(gameObject.transform.eulerAngles.x, gameObject.transform.eulerAngles.y - 180, gameObject.transform.eulerAngles.z);
+                }
+                else if (xAxisValue > 0 && isFacingLeft)
+                {
+                    isFacingLeft = false;
+                    anim.SetBool("isIdle", true);
+                    gameObject.transform.eulerAngles = new Vector3(gameObject.transform.eulerAngles.x, gameObject.transform.eulerAngles.y + 180, gameObject.transform.eulerAngles.z);
+                }
+                else
+                {
+                    if (anim.GetBool("isIdle"))
+                        anim.SetBool("isIdle", false);
+                }
+            }
+            if (!playerXInput && rb.velocity.x != 0.0f && !askedToUpdateMovement)
+            {
+                //rb.velocity = new Vector3(0.0f, rb.velocity.y, rb.velocity.z); 
+                updateToThisVelocity = new Vector3(0.0f, rb.velocity.y, rb.velocity.z);
+                askedToUpdateMovement = true;
+                if (!anim.GetBool("isIdle"))
+                {
+                    anim.SetBool("isIdle", true);
+                }
+            }
+            #endregion
 
-        #region PURIFY INPUT
-        if (Input.GetButtonDown("Purify") && !purifier.activeInHierarchy) {
-            purifier.SetActive(true);
+            #region PHYSICS-BASED VERTICAL MOVEMENT INPUT (single jump)
+            
+            if (playerYInput && canJump && !anim.GetBool("isPurifying"))
+            {
+                canJump = false;
+                askedToJump = true;
+                anim.SetBool("isMidair", true);
+            }
+            #endregion
+
+            #region PURIFY INPUT
+            if (Input.GetButtonDown("Purify") && !purifier.activeInHierarchy)
+            {
+                purifier.SetActive(true);
+            }
+            #endregion
         }
-        #endregion
 
         #region Switch Buns based on purification amount
         if (purificationAmountChanged && !anim.GetBool("isPurifying")) {
