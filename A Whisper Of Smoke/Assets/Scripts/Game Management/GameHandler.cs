@@ -57,7 +57,7 @@ public class GameHandler : MonoBehaviour
                 Debug.Log("The player has purified all items and all subtitles are done running");
                 levelLoader.LoadScene(winSceneBuildIndex);
             }
-            else if (currentlyCenteredGO != playerObject)
+            if (currentlyCenteredGO != playerObject)
             {
                 currentlyCenteredGO = playerObject;
                 objectCmvc.Priority = 0;

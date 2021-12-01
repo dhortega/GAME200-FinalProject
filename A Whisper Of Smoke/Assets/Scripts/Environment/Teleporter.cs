@@ -11,10 +11,12 @@ public class Teleporter : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Vector3 initialPosition = Player.transform.position;
-        
-        Player.transform.position = teleportTarget.transform.position;
-        playerCamera.OnTargetObjectWarped(Player.transform, initialPosition - teleportTarget.transform.position);
-        playerCamera.PreviousStateIsValid = false;
+        if (other.gameObject.GetComponent<PlayerMovement>() != null) {
+            Vector3 initialPosition = Player.transform.position;
+
+            Player.transform.position = teleportTarget.transform.position;
+            playerCamera.OnTargetObjectWarped(Player.transform, initialPosition - teleportTarget.transform.position);
+            playerCamera.PreviousStateIsValid = false;
+        }
     }
 }
