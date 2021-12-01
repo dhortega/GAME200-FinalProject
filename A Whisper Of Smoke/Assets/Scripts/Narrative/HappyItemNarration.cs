@@ -50,8 +50,11 @@ public class HappyItemNarration : MonoBehaviour
             else
                 am.Play("PurifyFireExtinguisher");
         }
-        if (gh.GetNumberOfPurifications() == 0)
+        if (gh.GetNumberOfPurifications() == 0) {
             bgAnim.SetTrigger("fade1");
+            am.Stop("Fire", 2.0f);
+        }
+            
         else if (gh.GetNumberOfPurifications() == 1)
             bgAnim.SetTrigger("fade2");
 
