@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class HappyItemNarration : MonoBehaviour
 {
     [SerializeField] private GameHandler gh;
+    [SerializeField] private Animator bgAnim;
 
     [SerializeField] private List<string> quotesToDisplay;
     [SerializeField] private List<float> timeForEachDisplay;
@@ -49,6 +50,11 @@ public class HappyItemNarration : MonoBehaviour
             else
                 am.Play("PurifyFireExtinguisher");
         }
+        if (gh.GetNumberOfPurifications() == 0)
+            bgAnim.SetTrigger("fade1");
+        else if (gh.GetNumberOfPurifications() == 1)
+            bgAnim.SetTrigger("fade2");
+
         for (int i = 0; i < quotesToDisplay.Count; ++i)
         {
             textbox.text = quotesToDisplay[i];

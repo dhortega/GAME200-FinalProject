@@ -79,4 +79,8 @@ public class GameHandler : MonoBehaviour
     public static bool GetPlayerActionsEnabled() {
         return playerAllowedToMove;
     }
+
+    public int GetNumberOfPurifications() {
+        return numberOfItemsPurified;
+    }
 }
