@@ -11,9 +11,16 @@ public class PlayerPurification : MonoBehaviour
     private ParticleSystem ps;
     private ParticleSystem.MainModule psmm;
     private bool isPurifying = false;
+
+    private AudioManager am;
+
     // Update is called once per frame
     private void OnEnable() {
         startCastTimer = Time.time;
+        if (am == null)
+        {
+            am = FindObjectOfType<AudioManager>();
+        }
     }
     void Update()
     {
@@ -44,8 +51,8 @@ public class PlayerPurification : MonoBehaviour
         // NOTE: ONCE THE PARTICLE SYSTEM'S TIME RUNS OUT, IT WILL DISABLE ITSELF. 
         if (other.gameObject.CompareTag("Purifiable"))                                  // If collided with purifiable object...
         {
-            
             if (playerMovement.GetNumOfPurificationsAvalible() > 0) {                   // If there is tummy space for more purifications...
+                am.Play("Purify");
                 if (ps == null) {
                     ps = other.gameObject.GetComponent<ParticleSystem>();
                     if (ps != null) {
@@ -75,6 +82,14 @@ public class PlayerPurification : MonoBehaviour
             else  {                                                                      // Else if the Deater is too full...
                 Debug.Log("I'm too full! Can't purify any more smoke :(");
                 // PLAY BURP SOUND HERE
+                if (am == null)
+                {
+                    Debug.Log("AudioManager is missing! Cannot play sounds.");
+                }
+                else
+                {
+                    am.Play("Burp");
+                }
             }
         }
     }

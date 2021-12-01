@@ -14,7 +14,17 @@ public class HappyItemNarration : MonoBehaviour
     [SerializeField] private GameObject smokeCageParticleSystem;
     [SerializeField] private Animator anim;
     [SerializeField] private Text textbox;
+    [SerializeField] private bool isScrapbook;
     private bool alreadyPlayed = false;
+
+    private AudioManager am;
+
+    private void OnEnable()
+    {
+        if (am == null) {
+            am = FindObjectOfType<AudioManager>();
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -30,6 +40,15 @@ public class HappyItemNarration : MonoBehaviour
     {
         gh.SetCaptionCoroutineActive(true);
         //yield return new WaitForSeconds(fadeAnimationTime);
+        if (am == null) {
+            Debug.Log("AudioManager is missing! Cannot play sounds.");
+        }
+        else {
+            if (isScrapbook)
+                am.Play("PurifyScrapbook");
+            else
+                am.Play("PurifyFireExtinguisher");
+        }
         for (int i = 0; i < quotesToDisplay.Count; ++i)
         {
             textbox.text = quotesToDisplay[i];

@@ -31,6 +31,14 @@ public class PlayerMovement : MonoBehaviour
     private bool askedToUpdateMovement = false;
     private Vector3 updateToThisVelocity;
 
+    private AudioManager am;
+    private void OnEnable()
+    {
+        if (am == null)
+        {
+            am = FindObjectOfType<AudioManager>();
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -89,6 +97,14 @@ public class PlayerMovement : MonoBehaviour
             
             if (playerYInput && canJump && !anim.GetBool("isPurifying"))
             {
+                if (am == null)
+                {
+                    Debug.Log("AudioManager is missing! Cannot play sounds.");
+                }
+                else
+                {
+                    am.Play("Jump");
+                }
                 canJump = false;
                 askedToJump = true;
                 anim.SetBool("isMidair", true);
@@ -154,6 +170,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Candy")) {
             // PLAY CHOMP SOUND
+            if (am == null)
+            {
+                Debug.Log("AudioManager is missing! Cannot play sounds.");
+            }
+            else
+            {
+                am.Play("Munch");
+            }
             other.gameObject.SetActive(false);
             IncreaseNumOfPurifications(amountRecoveredFromCandy);
             Debug.Log("Nom nom nom! I now have " + numberOfPurifiesAvalible + " purifications left!");
