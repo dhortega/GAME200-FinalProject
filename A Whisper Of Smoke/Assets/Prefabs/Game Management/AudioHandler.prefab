@@ -59,7 +59,7 @@ MonoBehaviour:
     playOnAwake: 0
     source: {fileID: 0}
   - name: Fire
-    clip: {fileID: 8300000, guid: 5dc941a36fb37eb49ab497b3779e130b, type: 3}
+    clip: {fileID: 8300000, guid: 2bdf9b5c65cfb9a438838fcfe15ac27d, type: 3}
     volume: 1
     pitch: 1
     loop: 1
@@ -112,5 +112,12 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: BGM
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 1
     playOnAwake: 0
     source: {fileID: 0}

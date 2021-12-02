@@ -453,7 +453,7 @@ MonoBehaviour:
   - '"No.. please stop..! It''s my fault, I''m sorry. I''m sorry, so please stop
     fighting.."'
   timeForEachDisplay:
-  - 4
+  - 3.5
   - 3
   - 6
   fadeAnimationTime: 1

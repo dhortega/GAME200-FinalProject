@@ -369,6 +369,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2594689642713756654, guid: 36fd7144b3c43ae49bd4714148832a76,
+        type: 3}
+      propertyPath: audioToPlayOnAwake.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2594689642713756654, guid: 36fd7144b3c43ae49bd4714148832a76,
+        type: 3}
+      propertyPath: audioToStopOnExit.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2594689642713756654, guid: 36fd7144b3c43ae49bd4714148832a76,
+        type: 3}
+      propertyPath: audioToPlayOnAwake.Array.data[0]
+      value: Fire
+      objectReference: {fileID: 0}
+    - target: {fileID: 2594689642713756654, guid: 36fd7144b3c43ae49bd4714148832a76,
+        type: 3}
+      propertyPath: audioToStopOnExit.Array.data[0]
+      value: Fire
+      objectReference: {fileID: 0}
     - target: {fileID: 2594689643119275456, guid: 36fd7144b3c43ae49bd4714148832a76,
         type: 3}
       propertyPath: m_LocalPosition.x
