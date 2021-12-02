@@ -14,6 +14,7 @@ public class HappyItemNarration : MonoBehaviour
 
     [SerializeField] private GameObject smokeCageParticleSystem;
     [SerializeField] private Animator anim;
+    [SerializeField] private Animator UIanim;
     [SerializeField] private Text textbox;
     [SerializeField] private bool isScrapbook;
     private bool alreadyPlayed = false;
@@ -54,9 +55,10 @@ public class HappyItemNarration : MonoBehaviour
             bgAnim.SetTrigger("fade1");
             am.Stop("Fire", 2.0f);
         }
-            
         else if (gh.GetNumberOfPurifications() == 1)
             bgAnim.SetTrigger("fade2");
+
+        UIanim.SetTrigger("collected");
 
         for (int i = 0; i < quotesToDisplay.Count; ++i)
         {
