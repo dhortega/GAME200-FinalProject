@@ -3,7 +3,12 @@ guid: 5a2876248d844e247bcfb41728bd700f
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: foil
+    second: {fileID: 2800000, guid: 64bd71ff372ea8f479f6d393630601aa, type: 3}
   materials:
     materialImportMode: 1
     materialName: 0

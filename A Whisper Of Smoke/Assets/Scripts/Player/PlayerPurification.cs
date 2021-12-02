@@ -7,6 +7,7 @@ public class PlayerPurification : MonoBehaviour
     [SerializeField] private float fadeoutDuration = 0.1f;
     [SerializeField] private float castDuration = 0.5f;
     [SerializeField] private PlayerMovement playerMovement;
+    
     private float startCastTimer = 0.0f;
     private ParticleSystem ps;
     private ParticleSystem.MainModule psmm;
@@ -14,13 +15,18 @@ public class PlayerPurification : MonoBehaviour
 
     private AudioManager am;
 
+    private void Start()
+    {
+        gameObject.SetActive(false);
+    }
+
     // Update is called once per frame
     private void OnEnable() {
         startCastTimer = Time.time;
         if (am == null)
         {
             am = FindObjectOfType<AudioManager>();
-        }
+        } 
     }
     void Update()
     {
@@ -58,6 +64,7 @@ public class PlayerPurification : MonoBehaviour
                     if (ps != null) {
                         Debug.Log("Starting purification process!");
                         playerMovement.DecreaseNumOfPurifications();
+                        
                         if (!playerMovement.GetAnimator().GetBool("isPurifying"))
                             playerMovement.GetAnimator().SetBool("isPurifying", true);
                         isPurifying = true;

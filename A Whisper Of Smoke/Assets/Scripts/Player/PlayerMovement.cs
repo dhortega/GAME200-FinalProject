@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -11,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool isFacingLeft = false;
     // Purification Variables
     [Header("Purification Variables")]
+    [SerializeField] private Text purificationAmountText;
     [SerializeField] private int numberOfPurifiesAvalible = 6;
     [SerializeField] private int amountRecoveredFromCandy = 2;
     [SerializeField] private int turnToGrayAt = 3;
@@ -47,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
         canJump = true;
         SwitchToBun(true, false, false);
         lastPosition = gameObject.transform.position;
+        purificationAmountText.text = "x" + GetNumOfPurificationsAvalible();
     }
 
     // Update is called once per frame
@@ -181,7 +184,7 @@ public class PlayerMovement : MonoBehaviour
             other.gameObject.SetActive(false);
             IncreaseNumOfPurifications(amountRecoveredFromCandy);
             Debug.Log("Nom nom nom! I now have " + numberOfPurifiesAvalible + " purifications left!");
-
+            purificationAmountText.text = "x" + GetNumOfPurificationsAvalible();
         }
     }
 
@@ -196,6 +199,7 @@ public class PlayerMovement : MonoBehaviour
     public void DecreaseNumOfPurifications(int dec = 1) {
         numberOfPurifiesAvalible -= dec;
         purificationAmountChanged = true;
+        purificationAmountText.text = "x" + GetNumOfPurificationsAvalible();
     }
 
     public void IncreaseNumOfPurifications(int inc = 1) {
