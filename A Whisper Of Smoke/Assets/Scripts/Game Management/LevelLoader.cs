@@ -14,6 +14,11 @@ public class LevelLoader : MonoBehaviour
 
     private AudioManager am;
 
+    private void Awake()
+    {
+        
+    }
+
     private void Start() {
         restartMenu.SetActive(false);
         anim = gameObject.GetComponent<Animator>();
@@ -28,6 +33,10 @@ public class LevelLoader : MonoBehaviour
 
     private void Update()
     {
+        if (am == null)
+        {
+            am = FindObjectOfType<AudioManager>();
+        }
         if (allowedToPause) {
             if (Input.GetButtonUp("Cancel")) {
                 PauseGame();

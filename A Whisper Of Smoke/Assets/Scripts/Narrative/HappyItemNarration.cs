@@ -31,6 +31,10 @@ public class HappyItemNarration : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (am == null)
+        {
+            am = FindObjectOfType<AudioManager>();
+        }
         if (!alreadyPlayed && !smokeCageParticleSystem.GetComponent<ParticleSystem>().isEmitting) {
             gh.AddCaptionCoroutineToQueue(PlayQuotes(), gameObject.transform.parent.gameObject);
             alreadyPlayed = true;

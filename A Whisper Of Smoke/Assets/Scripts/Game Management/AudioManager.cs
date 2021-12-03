@@ -10,10 +10,15 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
+        
         if (instance == null)
             instance = this;
-        else
+        else {
+            //Destroy(gameObject);
             DontDestroyOnLoad(gameObject);
+            return;
+        }
+            
 
         foreach (Sound s in sounds) {
             s.source = gameObject.AddComponent<AudioSource>();
@@ -29,6 +34,10 @@ public class AudioManager : MonoBehaviour
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null) {
             Debug.Log("Cannot find " + s.name + ". Was this a typo?");
+            return;
+        }
+        if (s.source == null) {
+            Debug.Log(s.name + " is null for some reason");
             return;
         }
         s.source.Play();
