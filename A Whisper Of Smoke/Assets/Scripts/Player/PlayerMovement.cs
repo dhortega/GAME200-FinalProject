@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     // Component Variables
     [Header("Component Variables")]
     [SerializeField] private Animator anim;
+    [SerializeField] private Animator animStarPurification; 
     [SerializeField] private GameObject purifier;
     private Rigidbody rb;
     // Bool Checkers
@@ -122,7 +123,7 @@ public class PlayerMovement : MonoBehaviour
             #region PURIFY INPUT
             if (Input.GetButtonDown("Purify") && !purifier.activeInHierarchy)
             {
-                purifier.SetActive(true);
+                purifier.SetActive(true);                
             }
             #endregion
         }
@@ -206,6 +207,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Candy"))
         {
+
+            // PLAY INCREMENT ANIMATION
+            animStarPurification.SetTrigger("GotPurification");
+
             // PLAY CHOMP SOUND
             if (am == null)
             {
@@ -214,7 +219,9 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 am.Play("Munch");
+                am.Play("Collect Purification");
             }
+
             other.gameObject.SetActive(false);
             IncreaseNumOfPurifications(amountRecoveredFromCandy);
             Debug.Log("Nom nom nom! I now have " + numberOfPurifiesAvalible + " purifications left!");
@@ -238,6 +245,10 @@ public class PlayerMovement : MonoBehaviour
 
     public Animator GetAnimator() {
         return anim;
+    }
+    public Animator GetAnimatorStarPurification()
+    {
+        return animStarPurification;
     }
 
     public int GetNumOfPurificationsAvalible() {
