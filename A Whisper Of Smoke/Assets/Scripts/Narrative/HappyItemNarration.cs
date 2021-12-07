@@ -22,11 +22,14 @@ public class HappyItemNarration : MonoBehaviour
     private bool alreadyPlayed = false;
 
     private AudioManager am;
-
+    private Animator objAnimator;
     private void OnEnable()
     {
         if (am == null) {
             am = FindObjectOfType<AudioManager>();
+        }
+        if (objAnimator == null) {
+            objAnimator = this.gameObject.GetComponent<Animator>();
         }
     }
 
@@ -64,8 +67,7 @@ public class HappyItemNarration : MonoBehaviour
         else if (gh.GetNumberOfPurifications() == 1)
             bgAnim.SetTrigger("fade2");
 
-        if(UIanim != null)
-            UIanim.SetTrigger("collected");
+        
 
         for (int i = 0; i < quotesToDisplay.Count; ++i)
         {
@@ -75,6 +77,12 @@ public class HappyItemNarration : MonoBehaviour
             anim.SetBool("isVisible", false);
             yield return new WaitForSeconds(fadeAnimationTime);
         }
+        if (objAnimator != null){
+            objAnimator.SetTrigger("vanish");
+        }
+        yield return new WaitForSeconds(1.0f);
+        if (UIanim != null)
+            UIanim.SetTrigger("collected");
         gh.SetCaptionCoroutineActive(false);
     }
 }
