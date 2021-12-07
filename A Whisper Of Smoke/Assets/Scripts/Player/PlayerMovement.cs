@@ -195,6 +195,8 @@ public class PlayerMovement : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Floor") && !canJump) {
+            if (!am.AudioSourceIsPlaying("Land"))
+                am.Play("Land");
             anim.SetBool("isMidair", false);
             canJump = true;
         }
@@ -219,10 +221,11 @@ public class PlayerMovement : MonoBehaviour
             purificationAmountText.text = "x" + GetNumOfPurificationsAvalible();
         }
         else if (other.gameObject.CompareTag("Purifiable")) {
-            Debug.Log("PUrified hit");
             if (!purifier.activeInHierarchy) {
                 if (GameHandler.GetPlayerActionsEnabled())
                 {
+                    if (!am.AudioSourceIsPlaying("Cough"))
+                        am.Play("Cough");
                     GameHandler.SetPlayerActionsEnabled(false);
                     rb.velocity = new Vector3(Mathf.Sign(rb.velocity.x) * 10.0f, Mathf.Sign(rb.velocity.y) * 5.0f, 0.0f) * -1.0f;
                     repuseRequested = true;

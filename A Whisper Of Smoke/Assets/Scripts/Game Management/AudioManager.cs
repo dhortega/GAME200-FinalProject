@@ -58,6 +58,22 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public bool AudioSourceIsPlaying(string name) {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.Log("Cannot find " + s.name + ". Was this a typo?");
+            return true;
+        }
+        if (s.source == null)
+        {
+            Debug.Log(s.name + " is null for some reason");
+            return true;
+        }
+
+        return s.source.isPlaying;
+    }
+
     private IEnumerator AudioFadeOut(AudioSource source, float fadeTime) {
         float initVol = source.volume;
 

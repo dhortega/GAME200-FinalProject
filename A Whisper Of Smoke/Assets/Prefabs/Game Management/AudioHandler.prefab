@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: Jump
-    clip: {fileID: 8300000, guid: 356fe8e3e303cc34e9f1fe1c6ae75089, type: 3}
+    clip: {fileID: 8300000, guid: 6ea7ede1ba553b74a9457ede7412601e, type: 3}
     volume: 0.3
     pitch: 1
     loop: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
     playOnAwake: 0
     source: {fileID: 0}
   - name: Purify
-    clip: {fileID: 8300000, guid: 9816b1c396a387a4d97b4263c6354f1e, type: 3}
+    clip: {fileID: 8300000, guid: 8e1e8aacdb24640418d6f339e646fc81, type: 3}
     volume: 1
     pitch: 1
     loop: 0
@@ -119,5 +119,19 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Land
+    clip: {fileID: 8300000, guid: 3bc04067eca4aee459c00f0b08e117b9, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Cough
+    clip: {fileID: 8300000, guid: 5dd944282e2d0384fb720fe4d448af29, type: 3}
+    volume: 0.65
+    pitch: 1
+    loop: 0
     playOnAwake: 0
     source: {fileID: 0}

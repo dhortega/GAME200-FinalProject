@@ -59,6 +59,7 @@ public class PlayerPurification : MonoBehaviour
         {
             if (playerMovement.GetNumOfPurificationsAvalible() > 0) {                   // If there is tummy space for more purifications...
                 am.Play("Purify");
+                playerMovement.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 if (ps == null) {
                     ps = other.gameObject.GetComponent<ParticleSystem>();
                     if (ps != null) {
