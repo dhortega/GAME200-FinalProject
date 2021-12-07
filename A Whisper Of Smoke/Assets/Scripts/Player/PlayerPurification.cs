@@ -58,6 +58,7 @@ public class PlayerPurification : MonoBehaviour
         if (other.gameObject.CompareTag("Purifiable"))                                  // If collided with purifiable object...
         {
             if (playerMovement.GetNumOfPurificationsAvalible() > 0) {                   // If there is tummy space for more purifications...
+                playerMovement.GetAnimatorStarPurification().SetTrigger("UsedPurification");    // Play decrement animation
                 am.Play("Purify");
                 playerMovement.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 if (ps == null) {

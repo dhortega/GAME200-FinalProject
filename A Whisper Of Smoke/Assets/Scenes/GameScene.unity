@@ -6932,7 +6932,7 @@ GameObject:
   - component: {fileID: 870156549}
   - component: {fileID: 870156551}
   m_Layer: 5
-  m_Name: MiniMap
+  m_Name: MiniMap_ver2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7471,7 +7471,7 @@ RectTransform:
   m_Children:
   - {fileID: 1298353536}
   m_Father: {fileID: 891866473}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -8024,7 +8024,7 @@ GameObject:
   - component: {fileID: 1068128687}
   - component: {fileID: 1068128689}
   m_Layer: 11
-  m_Name: FogPlane
+  m_Name: FogPlane_ver2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10188,6 +10188,7 @@ MonoBehaviour:
   speed: 10
   jumpForce: 500
   isFacingLeft: 0
+  repulseTime: 0.5
   purificationAmountText: {fileID: 860983345}
   numberOfPurifiesAvalible: 4
   amountRecoveredFromCandy: 2
@@ -10196,6 +10197,7 @@ MonoBehaviour:
   grayBun: {fileID: 466399512}
   blackBun: {fileID: 466399511}
   anim: {fileID: 1609504507}
+  animStarPurification: {fileID: 2029580193}
   purifier: {fileID: 503809761}
 --- !u!65 &1197271861
 BoxCollider:
@@ -17255,6 +17257,7 @@ GameObject:
   - component: {fileID: 2029580190}
   - component: {fileID: 2029580192}
   - component: {fileID: 2029580191}
+  - component: {fileID: 2029580193}
   m_Layer: 5
   m_Name: CandyIMG
   m_TagString: Untagged
@@ -17318,6 +17321,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2029580189}
   m_CullTransparentMesh: 0
+--- !u!95 &2029580193
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029580189}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 20bc4a6e08897ca4ca4a011c871e7b74, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2052848030
 GameObject:
   m_ObjectHideFlags: 0
@@ -17503,7 +17525,7 @@ GameObject:
   - component: {fileID: 2064902700}
   - component: {fileID: 2064902699}
   m_Layer: 11
-  m_Name: FogPlane_copy
+  m_Name: FogPlane_ver1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17521,7 +17543,7 @@ RectTransform:
   m_LocalScale: {x: 75, y: 1, z: 45}
   m_Children: []
   m_Father: {fileID: 891866473}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -18309,6 +18331,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3131124903776076463, guid: 7924874f19854514e93d55f7702d1c58,
         type: 3}
+      propertyPath: sounds.Array.size
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131124903776076463, guid: 7924874f19854514e93d55f7702d1c58,
+        type: 3}
       propertyPath: sounds.Array.data[2].clip
       value: 
       objectReference: {fileID: 8300000, guid: 2bdf9b5c65cfb9a438838fcfe15ac27d, type: 3}
@@ -18317,6 +18344,36 @@ PrefabInstance:
       propertyPath: sounds.Array.data[10].clip
       value: 
       objectReference: {fileID: 8300000, guid: c56565c5773430d4f96fcd678877f8b2, type: 3}
+    - target: {fileID: 3131124903776076463, guid: 7924874f19854514e93d55f7702d1c58,
+        type: 3}
+      propertyPath: sounds.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: d83fad9705a40ff48803125e5afbfe7a, type: 3}
+    - target: {fileID: 3131124903776076463, guid: 7924874f19854514e93d55f7702d1c58,
+        type: 3}
+      propertyPath: sounds.Array.data[13].name
+      value: Collect Purification
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131124903776076463, guid: 7924874f19854514e93d55f7702d1c58,
+        type: 3}
+      propertyPath: sounds.Array.data[13].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3c0e72a7d28709e41a46094badc6bb32, type: 3}
+    - target: {fileID: 3131124903776076463, guid: 7924874f19854514e93d55f7702d1c58,
+        type: 3}
+      propertyPath: sounds.Array.data[13].volume
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131124903776076463, guid: 7924874f19854514e93d55f7702d1c58,
+        type: 3}
+      propertyPath: sounds.Array.data[13].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131124903776076463, guid: 7924874f19854514e93d55f7702d1c58,
+        type: 3}
+      propertyPath: sounds.Array.data[10].volume
+      value: 0.65
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7924874f19854514e93d55f7702d1c58, type: 3}
 --- !u!1001 &7055758305526036182
