@@ -17,6 +17,8 @@ public class HappyItemNarration : MonoBehaviour
     [SerializeField] private Animator UIanim;
     [SerializeField] private Text textbox;
     [SerializeField] private bool isScrapbook;
+
+    [SerializeField] private bool isTutorial = false;
     private bool alreadyPlayed = false;
 
     private AudioManager am;
@@ -62,7 +64,8 @@ public class HappyItemNarration : MonoBehaviour
         else if (gh.GetNumberOfPurifications() == 1)
             bgAnim.SetTrigger("fade2");
 
-        UIanim.SetTrigger("collected");
+        if(UIanim != null)
+            UIanim.SetTrigger("collected");
 
         for (int i = 0; i < quotesToDisplay.Count; ++i)
         {

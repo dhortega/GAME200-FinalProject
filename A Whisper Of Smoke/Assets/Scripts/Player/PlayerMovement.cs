@@ -236,15 +236,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Purifiable"))
-        {
-            //GameHandler.SetPlayerActionsEnabled(true);
-            Debug.Log("Exited smoke collider");
-        }
-    }
-
     public Animator GetAnimator() {
         return anim;
     }

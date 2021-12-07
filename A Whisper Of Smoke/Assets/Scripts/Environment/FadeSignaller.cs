@@ -12,10 +12,13 @@ public class FadeSignaller : MonoBehaviour
     // Upon entering the trigger where this script is attached to, call their respective FadeOut from FadeDisable
     private void OnTriggerEnter(Collider other)
     {
-        for (int i = 0; i < targetObjects.Length; i++)
-        {
-            Debug.Log("Entered Fade Collision");
-            StartCoroutine(targetObjects[i].GetComponent<FadeDisable>().FadeOut());
+        if (other.gameObject.GetComponent<PlayerMovement>() != null) {
+            for (int i = 0; i < targetObjects.Length; i++)
+            {
+                Debug.Log("Entered Fade Collision");
+                StartCoroutine(targetObjects[i].GetComponent<FadeDisable>().FadeOut());
+            }
         }
+        
     }
 }

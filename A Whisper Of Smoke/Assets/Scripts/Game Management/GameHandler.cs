@@ -85,7 +85,7 @@ public class GameHandler : MonoBehaviour
     }
 
     public int GetNumberOfPurifications() {
-        return numberOfItemsPurified;
+        return numberOfItemsPurified - 1;
         Debug.Log("Number purified: " + numberOfItemsPurified);
     }
 }
