@@ -80,6 +80,10 @@ public class GameHandler : MonoBehaviour
         return playerAllowedToMove;
     }
 
+    public static void SetPlayerActionsEnabled(bool enabled) {
+        playerAllowedToMove = enabled;
+    }
+
     public int GetNumberOfPurifications() {
         return numberOfItemsPurified;
         Debug.Log("Number purified: " + numberOfItemsPurified);

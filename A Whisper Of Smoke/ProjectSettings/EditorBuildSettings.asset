@@ -18,6 +18,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Narrative Scenes/WinCutscene.unity
     guid: 377a3f51c1c1e1c4c8ae1e28dea65aa7
   - enabled: 0
-    path: Assets/Scenes/Jess.unity
+    path: Assets/Scenes/Jess/Jess.unity
     guid: 564f87d54574c65468e07de382efa4fa
   m_configObjects: {}
